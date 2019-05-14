@@ -21,17 +21,17 @@ public class SideScrollingWorld extends World
     // World size constants
     // TO STUDENTS: Modify only if you're sure
     //              Should be a resolution that's a multiple of TILE_SIZE
-    private static final int VISIBLE_WIDTH = 640;
-    private static final int VISIBLE_HEIGHT = 480;
-    
+    private static final int VISIBLE_WIDTH = 480;
+    private static final int VISIBLE_HEIGHT = 640;
+
     // Additional useful constants based on world size
     public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH / 2;
     private static final int HALF_VISIBLE_HEIGHT = VISIBLE_HEIGHT / 2;
-    
+
     // Defining the boundaries of the scrollable world
     // TO STUDENTS: Modify SCROLLABLE_WIDTH if you wish to have a longer level
-    public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH * 3;
-    private static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT;
+    public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH ;
+    private static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT ;
 
     // Hero
     Hero theHero;
@@ -44,7 +44,7 @@ public class SideScrollingWorld extends World
      */
     public SideScrollingWorld()
     {    
-        // Create a new world with 640x480 cells with a cell size of 1x1 pixels.
+        // Create a new world with 480 x 640 cells with a cell size of 1x1 pixels.
         // Final argument of 'false' means that actors in the world are not restricted to the world boundary.
         // See: https://www.greenfoot.org/files/javadoc/greenfoot/World.html#World-int-int-int-boolean-
         super(VISIBLE_WIDTH, VISIBLE_HEIGHT, 1, false);
@@ -62,11 +62,39 @@ public class SideScrollingWorld extends World
     private void setup()
     {
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
-        addLeftGround();
-        addFences();
-        addMetalPlateSteps();
-        addClouds();
-        addRightGround();
+        // addLeftGround();
+        // addFences();
+        // addMetalPlateSteps();
+        // addClouds();
+        // addRightGround();
+
+        // add metal plates 
+        for (int  i = 0; i <= 14; i += 1)
+        { 
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 18 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        
+        for (int  i = 0; i <= 5; i += 1)
+        { 
+            int x = 6 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 8 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ground someGround = new Ground(x, y);
+            addObject(someGround, x, y);
+        }
+        
+        for (int  i = 0; i <= 4; i += 1)
+        { 
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
         addHero();
     }
 
@@ -186,7 +214,7 @@ public class SideScrollingWorld extends World
         theHero = new Hero(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, getHeight() / 4 * 3);
+        addObject(theHero, initialX, 5* TILE_SIZE);
     }
 
     /**
