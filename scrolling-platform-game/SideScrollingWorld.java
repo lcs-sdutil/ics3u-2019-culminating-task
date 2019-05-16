@@ -68,7 +68,7 @@ public class SideScrollingWorld extends World
         // addClouds();
         // addRightGround();
 
-        // add metal plates 
+        // add base level 
         for (int  i = 0; i <= 14; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
@@ -78,19 +78,90 @@ public class SideScrollingWorld extends World
             addObject(plate, x, y);
         }
         
-        for (int  i = 0; i <= 5; i += 1)
+        // second level 
+        for (int  i = 0; i <= 3; i += 1)
         { 
-            int x = 6 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 8 * TILE_SIZE + HALF_TILE_SIZE;
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
 
-            Ground someGround = new Ground(x, y);
-            addObject(someGround, x, y);
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 7; i += 1)
+        { 
+            int x = 7 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
         }
         
+        // tird level 
+        for (int  i = 0; i <= 7; i += 1)
+        { 
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        
+        for (int  i = 0; i <= 3; i += 1)
+        { 
+            int x = 11 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // fourth level 
         for (int  i = 0; i <= 4; i += 1)
         { 
-            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 8 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 1; i += 1)
+        { 
+            int x = 13 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // fith level 
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 1; i += 1)
+        { 
+            int x = 6 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+
+            MetalPlate plate = new MetalPlate(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 12 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
 
             MetalPlate plate = new MetalPlate(x, y);
             addObject(plate, x, y);
@@ -214,7 +285,7 @@ public class SideScrollingWorld extends World
         theHero = new Hero(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, 5* TILE_SIZE);
+        addObject(theHero, initialX, 17 * TILE_SIZE);
     }
 
     /**
