@@ -72,7 +72,7 @@ public class SideScrollingWorld extends World
         for (int  i = 0; i <= 14; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 18 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 19 * TILE_SIZE + HALF_TILE_SIZE;
 
             MetalPlate plate = new MetalPlate(x, y);
             addObject(plate, x, y);
