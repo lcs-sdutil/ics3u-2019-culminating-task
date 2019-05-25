@@ -1,25 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Basic ground object.
+ * Write a description of class Ice here.
  * 
- * @author R. Gordon
- * @version May 8, 2019
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class Cloud extends FarAwayItem
+public class Ice extends Platform
 {
     /**
      * Constructor
      * 
      * Called once when object is created.
      */
-    Cloud(int scrollableWorldX, int scrollableWorldY)
+    Ice(int scrollableWorldX, int scrollableWorldY)
     {
         super(scrollableWorldX, scrollableWorldY);
     }
     
     /**
-     * Act - do whatever the Cloud wants to do. This method is called whenever
+     * Act - do whatever the Ice wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 

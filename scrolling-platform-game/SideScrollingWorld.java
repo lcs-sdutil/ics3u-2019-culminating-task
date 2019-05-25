@@ -31,7 +31,7 @@ public class SideScrollingWorld extends World
     // Defining the boundaries of the scrollable world
     // TO STUDENTS: Modify SCROLLABLE_WIDTH if you wish to have a longer level
     public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH ;
-    private static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT ;
+    private static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT * 3 ;
 
     // Hero
     Hero theHero;
@@ -64,7 +64,7 @@ public class SideScrollingWorld extends World
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
         // addLeftGround();
         // addFences();
-        // addMetalPlateSteps();
+        // addIceSteps();
         // addClouds();
         // addRightGround();
 
@@ -74,96 +74,96 @@ public class SideScrollingWorld extends World
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
             int y = 19 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // second level 
         for (int  i = 0; i <= 3; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 15 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         for (int  i = 0; i <= 7; i += 1)
         { 
             int x = 7 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 15 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // tird level 
         for (int  i = 0; i <= 7; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 11 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         for (int  i = 0; i <= 3; i += 1)
         { 
             int x = 11 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 11 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // fourth level 
         for (int  i = 0; i <= 4; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         for (int  i = 0; i <= 2; i += 1)
         { 
             int x = 8 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         for (int  i = 0; i <= 1; i += 1)
         { 
             int x = 13 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // fith level 
         for (int  i = 0; i <= 2; i += 1)
         { 
             int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         for (int  i = 0; i <= 1; i += 1)
         { 
             int x = 6 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         for (int  i = 0; i <= 2; i += 1)
         { 
             int x = 12 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
 
-            MetalPlate plate = new MetalPlate(x, y);
+            Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
         addHero();
@@ -194,49 +194,16 @@ public class SideScrollingWorld extends World
     }
 
     /**
-     * Add some fences at left and right side.
-     */
-    private void addFences()
-    {
-        // Three fences on left side of world
-        int x = HALF_TILE_SIZE + TILE_SIZE * 5;
-        int y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;
-        Fence fence1 = new Fence(x, y);
-        addObject(fence1, x, y);
-
-        x = HALF_TILE_SIZE + TILE_SIZE * 6;
-        y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;        
-        Fence fence2 = new Fence(x, y);
-        addObject(fence2, x, y);
-
-        x = HALF_TILE_SIZE + TILE_SIZE * 7;
-        y = VISIBLE_HEIGHT - HALF_TILE_SIZE - TILE_SIZE;
-        Fence fence3 = new Fence(x, y);
-        addObject(fence3, x, y);
-
-        // Two fences on right side of world
-        x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 3;
-        y = VISIBLE_HEIGHT / 2;
-        Fence fence4 = new Fence(x, y);
-        addObject(fence4, x, y);
-
-        x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - TILE_SIZE * 4;
-        y = VISIBLE_HEIGHT / 2;
-        Fence fence5 = new Fence(x, y);
-        addObject(fence5, x, y);
-    }
-
-    /**
      * Add steps made out of metal plates leading to end of world.
      */
-    private void addMetalPlateSteps()
+    private void addIceSteps()
     {
-        // How many plates total?
-        final int COUNT_OF_METAL_PLATES = 20;
+        // How many Ice total?
+        final int COUNT_OF_ICE = 20;
         final int PLATES_PER_GROUP = 4;
 
         // Add groups of plates
-        for (int i = 0; i < COUNT_OF_METAL_PLATES / PLATES_PER_GROUP; i += 1)
+        for (int i = 0; i < COUNT_OF_ICE / PLATES_PER_GROUP; i += 1)
         {
             // Group of four metal plates all at same y position
             int y = VISIBLE_HEIGHT - HALF_TILE_SIZE * 3 - i * TILE_SIZE;
@@ -245,24 +212,12 @@ public class SideScrollingWorld extends World
             for (int j = 0; j < PLATES_PER_GROUP; j += 1)
             {
                 int x = VISIBLE_WIDTH + TILE_SIZE * 2 + TILE_SIZE * (i + j) + TILE_SIZE * 5 * i;
-                MetalPlate plate = new MetalPlate(x, y);
+                Ice plate = new Ice(x, y);
                 addObject(plate, x, y);
             }
         }
     }
 
-    /**
-     * Add a few clouds for the opening scene.
-     */
-    private void addClouds()
-    {
-        Cloud cloud1 = new Cloud(170, 125);
-        addObject(cloud1, 170, 125);
-        Cloud cloud2 = new Cloud(450, 175);
-        addObject(cloud2, 450, 175);
-        Cloud cloud3 = new Cloud(775, 50);
-        addObject(cloud3, 775, 50);
-    }
 
     /**
      * Act
@@ -285,7 +240,7 @@ public class SideScrollingWorld extends World
         theHero = new Hero(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, 17 * TILE_SIZE);
+        addObject(theHero, initialX, 18 * TILE_SIZE);
     }
 
     /**

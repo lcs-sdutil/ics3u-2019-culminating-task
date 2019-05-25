@@ -124,14 +124,14 @@ public class Hero extends Actor
         }
 
         // Jumping
-        if (Greenfoot.isKeyDown("space") && !isGameOver)
-        {
-            // Only able to jump when on a solid object
-            if (onPlatform())
-            {
-                jump();
-            }
-        }
+        // if (Greenfoot.isKeyDown("space") && !isGameOver)
+        // {
+            // // Only able to jump when on a solid object
+            // if (onPlatform())
+            // {
+                // jump();
+            // }
+        // }
     }
 
     /**
@@ -376,7 +376,7 @@ public class Hero extends Actor
             }
 
             // Get a list of all decorations (objects that need to move
-            // to make hero look like they are moving)
+            // to make hero look like  they are moving)
             List<Decoration> decorations = world.getObjects(Decoration.class);
 
             // Move all the decoration objects to make it look like hero is moving
