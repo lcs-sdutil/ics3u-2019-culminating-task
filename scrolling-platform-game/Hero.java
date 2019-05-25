@@ -38,8 +38,8 @@ public class Hero extends Actor
     private String verticalDirection;
 
     // Constants to track horizontal direction
-    private static final String FACING_RIGHT = "right";
-    private static final String FACING_LEFT = "left";
+    private static final String FACING_UP = "up";
+    private static final String FACING_DOWN = "down";
     private String horizontalDirection;
 
     // For walking animation
@@ -66,7 +66,7 @@ public class Hero extends Actor
         verticalDirection = JUMPING_DOWN;
 
         // Facing right to start
-        horizontalDirection = FACING_RIGHT;
+        horizontalDirection = FACING_UP;
 
         // Set image
         setImage("PopoNana-fall-right.png");
@@ -109,13 +109,13 @@ public class Hero extends Actor
     private void checkKeys()
     {
         // Walking keys
-        if (Greenfoot.isKeyDown("left") && !isGameOver)
+        if (Greenfoot.isKeyDown("up") && !isGameOver)
         {
-            moveLeft();
+            moveUp();
         }
-        else if (Greenfoot.isKeyDown("right") && !isGameOver)
+        else if (Greenfoot.isKeyDown("down") && !isGameOver)
         {
-            moveRight();
+            moveDown();
         }
         else
         {
@@ -126,11 +126,11 @@ public class Hero extends Actor
         // Jumping
         // if (Greenfoot.isKeyDown("space") && !isGameOver)
         // {
-            // // Only able to jump when on a solid object
-            // if (onPlatform())
-            // {
-                // jump();
-            // }
+        // // Only able to jump when on a solid object
+        // if (onPlatform())
+        // {
+        // jump();
+        // }
         // }
     }
 
@@ -145,11 +145,11 @@ public class Hero extends Actor
             deltaY = 0;
 
             // Set image
-            if (horizontalDirection == FACING_RIGHT && Greenfoot.isKeyDown("right") == false)
+            if (horizontalDirection == FACING_UP && Greenfoot.isKeyDown("right") == false)
             {
                 setImage("PopoNana-right.png");
             }
-            else if (horizontalDirection == FACING_LEFT && Greenfoot.isKeyDown("left") == false)
+            else if (horizontalDirection == FACING_DOWN && Greenfoot.isKeyDown("left") == false)
             {
                 setImage("PopoNana-left.png");
             }
@@ -213,7 +213,7 @@ public class Hero extends Actor
         verticalDirection = JUMPING_UP;
 
         // Set image
-        if (horizontalDirection == FACING_RIGHT)
+        if (horizontalDirection == FACING_UP)
         {
             setImage("PopoNana-jump-up-right.png");
         }
@@ -240,7 +240,7 @@ public class Hero extends Actor
             verticalDirection = JUMPING_DOWN;
 
             // Set image
-            if (horizontalDirection == FACING_RIGHT)
+            if (horizontalDirection == FACING_DOWN)
             {
                 setImage("PopoNana-fall-right.png");
             }
@@ -273,7 +273,7 @@ public class Hero extends Actor
         if (stage < walkingRightImages.length)
         {
             // Set image for this stage of the animation
-            if (direction == FACING_RIGHT)
+            if (direction == FACING_UP)
             {
                 setImage(walkingRightImages[stage]);
             }
@@ -292,7 +292,7 @@ public class Hero extends Actor
     /**
      * Move the hero to the right.
      */
-    public void moveRight()
+    public void moveDown()
     {
         // Track direction
         horizontalDirection = FACING_RIGHT;
@@ -404,10 +404,10 @@ public class Hero extends Actor
     /**
      * Move the hero to the left.
      */
-    public void moveLeft()
+    public void moveUp()
     {
         // Track direction
-        horizontalDirection = FACING_LEFT;
+        verticalDirection = FACING_UP;
 
         // Set image 
         if (onPlatform())
@@ -431,34 +431,34 @@ public class Hero extends Actor
         SideScrollingWorld world = (SideScrollingWorld) getWorld(); 
 
         // Decide whether to actually move, or make world's tiles move
-        if (currentScrollableWorldXPosition - deltaX < world.HALF_VISIBLE_WIDTH)
+        if (currentScrollableWorldYPosition - deltaY < world.HALF_VISIBLE_WIDTH)
         {
-            // HERO IS WITHIN EXTREME LEFT PORTION OF SCROLLABLE WORLD
+            // HERO IS WITHIN EXTREME LOWER PORTION OF SCROLLABLE WORLD
             // So... actually move the actor within the visible world.
 
             // Don't let hero go off left edge of scrollable world 
             // (Allow movement only when not at left edge)
-            if (currentScrollableWorldXPosition > 0)
+            if (currentScrollableWorldXPosition < world.VISIBLE_HEIGHT)
             {
                 // Move left in visible world
-                int newVisibleWorldXPosition = getX() - deltaX;
-                setLocation(newVisibleWorldXPosition, getY());
+                int newVisibleWorldXPosition = getY() - deltaY;
+                setLocation(getX(), newVisibleWorldYPosition);
 
                 // Track position in wider scrolling world
-                currentScrollableWorldXPosition = getX();
+                currentScrollableWorldYPosition = getY();
             }            
         }
-        else if (currentScrollableWorldXPosition + deltaX * 2 > world.SCROLLABLE_WIDTH - world.HALF_VISIBLE_WIDTH)
+        else if (currentScrollableWorldYPosition + deltaY * 2 > world.SCROLLABLE_HEIGHT - world.HALF_VISIBLE_HEIGHT)
         {
             // HERO IS WITHIN EXTREME RIGHT PORTION OF SCROLLABLE WORLD
             // So... actually move the actor within the visible world.
 
             // Move left in visible world
-            int newVisibleWorldXPosition = getX() - deltaX;
-            setLocation(newVisibleWorldXPosition, getY());
+            int newVisibleWorldXPosition = getY() - deltaY;
+            setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
-            currentScrollableWorldXPosition -= deltaX;
+            currentScrollableWorldYPosition -= deltaY;
         }        
         else
         {
@@ -466,7 +466,7 @@ public class Hero extends Actor
             // So... we move the other objects to create illusion of hero moving
 
             // Track position in wider scrolling world
-            currentScrollableWorldXPosition -= deltaX;
+            currentScrollableWorldYPosition -= deltaY;
 
             // Get a list of all platforms (objects that need to move
             // to make hero look like they are moving)
@@ -476,7 +476,7 @@ public class Hero extends Actor
             for (Platform platform : platforms)
             {
                 // Platforms move right to make hero appear to move left
-                platform.moveRight(deltaX);
+                platform.moveDown(deltaY);
             }
 
             // Get a list of all decorations (objects that need to move
@@ -487,7 +487,7 @@ public class Hero extends Actor
             for (Decoration decoration: decorations)
             {
                 // Platforms move right to make hero appear to move left
-                decoration.moveRight(deltaX);
+                decoration.moveDown(deltaY);
             }
 
             // Get a list of all items that are in the distance (far away items)
@@ -497,7 +497,7 @@ public class Hero extends Actor
             for (FarAwayItem farAwayItem : farAwayItems)
             {
                 // FarAwayItems move right to make hero appear to move left
-                farAwayItem.moveRight(deltaX / 4);
+                farAwayItem.moveDown(deltaX / 4);
             }
 
         } 
