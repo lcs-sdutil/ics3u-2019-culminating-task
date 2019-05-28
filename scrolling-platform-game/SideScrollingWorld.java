@@ -21,17 +21,17 @@ public class SideScrollingWorld extends World
     // World size constants
     // TO STUDENTS: Modify only if you're sure
     //              Should be a resolution that's a multiple of TILE_SIZE
-    private static final int VISIBLE_WIDTH = 480;
-    public static final int VISIBLE_HEIGHT = 640;
+    private static final int VISIBLE_WIDTH = 640;
+    public static final int VISIBLE_HEIGHT = 480;
 
     // Additional useful constants based on world size
-    public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH;
-    public static final int HALF_VISIBLE_HEIGHT = VISIBLE_HEIGHT / 2;
+    public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH / 2;
+    public static final int HALF_VISIBLE_HEIGHT = VISIBLE_HEIGHT;
 
     // Defining the boundaries of the scrollable world
     // TO STUDENTS: Modify SCROLLABLE_WIDTH if you wish to have a longer level
-    public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH ;
-    public static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT * 3 ;
+    public static final int SCROLLABLE_WIDTH = VISIBLE_WIDTH * 3;
+    public static final int SCROLLABLE_HEIGHT = VISIBLE_HEIGHT ;
 
     // Hero
     Hero theHero;
@@ -62,135 +62,70 @@ public class SideScrollingWorld extends World
     private void setup()
     {
         // TO STUDENTS: Add, revise, or remove methods as needed to define your own game's world
-        // addLeftGround();
-        // addFences();
-        // addIceSteps();
-        // addClouds();
-        // addRightGround();
 
-        // add base level 
-        for (int  i = 0; i <= 14; i += 1)
-        { 
-            int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 19 * TILE_SIZE + HALF_TILE_SIZE;
+        // add starting platform 
+        addPlatforms();
 
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
+        
 
-        // second level 
-        for (int  i = 0; i <= 3; i += 1)
-        { 
-            int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 15 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-        for (int  i = 0; i <= 7; i += 1)
-        { 
-            int x = 7 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 15 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-
-        // tird level 
-        for (int  i = 0; i <= 7; i += 1)
-        { 
-            int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 11 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-
-        for (int  i = 0; i <= 3; i += 1)
-        { 
-            int x = 11 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 11 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-
-        // fourth level 
-        for (int  i = 0; i <= 4; i += 1)
-        { 
-            int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-        for (int  i = 0; i <= 2; i += 1)
-        { 
-            int x = 8 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-        for (int  i = 0; i <= 1; i += 1)
-        { 
-            int x = 13 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 7 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-
-        // fith level 
-        for (int  i = 0; i <= 2; i += 1)
-        { 
-            int x = HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-        for (int  i = 0; i <= 1; i += 1)
-        { 
-            int x = 6 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
-        for (int  i = 0; i <= 2; i += 1)
-        { 
-            int x = 12 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
-            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
-
-            Ice plate = new Ice(x, y);
-            addObject(plate, x, y);
-        }
+        
         addHero();
     }
-
+    
     /**
-     * Add blocks to create the ground to walk on at bottom-left of scrollable world.
+     * Add all the small platforms 
      */
-    private void addLeftGround()
+    private void addPlatforms()
     {
-        // How many tiles will cover the bottom of the initial visible area of screen?
-        final int tilesToCreate = getWidth() / TILE_SIZE;
+        // add starting plaform
+        for (int  i = 0; i <= 5; i += 1)
+        { 
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
 
-        // Loop to create and add the tile objects
-        for (int i = 0; i < tilesToCreate; i += 1)
-        {
-            // Add ground objects at bottom of screen
-            // NOTE: Actors are added based on their centrepoint, so the math is a bit trickier.
-            int x = i * TILE_SIZE + HALF_TILE_SIZE;
-            int y = getHeight() - HALF_TILE_SIZE;
-
-            // Create a ground tile
-            Ground groundTile = new Ground(x, y);
-
-            // Add the objects
-            addObject(groundTile, x, y);
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
         }
+        
+        // Add second platform  
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // tird platform 
+        for (int  i = 0; i <= 3; i += 1)
+        { 
+            int x = 2 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // fourth platform
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 5 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 2 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // fith platform 
     }
 
     /**
@@ -218,7 +153,6 @@ public class SideScrollingWorld extends World
         }
     }
 
-
     /**
      * Act
      * 
@@ -228,7 +162,7 @@ public class SideScrollingWorld extends World
     {
     }
 
-    /**
+    /** 
      * Add the hero to the world.
      */
     private void addHero()
@@ -240,46 +174,7 @@ public class SideScrollingWorld extends World
         theHero = new Hero(initialX);
 
         // Add hero in bottom left corner of screen
-        addObject(theHero, initialX, 18 * TILE_SIZE);
-    }
-
-    /**
-     * Add blocks to create the ground to walk on at top-right of scrollable world.
-     */
-    private void addRightGround()
-    {
-        // Constants to control dimensions of the ground at end of world
-        final int COUNT_OF_GROUND = 8;
-        final int GROUND_BELOW_COLUMNS = COUNT_OF_GROUND;
-        final int GROUND_BELOW_ROWS = 6;
-        final int COUNT_OF_GROUND_BELOW = GROUND_BELOW_COLUMNS * GROUND_BELOW_ROWS;
-
-        // 1. Make ground at end of level (top layer)
-        for (int i = 0; i < COUNT_OF_GROUND; i += 1)
-        {
-            // Position in wider scrollable world
-            int x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - i * TILE_SIZE;
-            int y = HALF_VISIBLE_HEIGHT + TILE_SIZE;
-
-            // Create object and add it
-            Ground ground = new Ground(x, y);
-            addObject(ground, x, y);
-        }
-
-        // 2. Make sub-ground at end of level (below top layer)
-        for (int i = 0; i < GROUND_BELOW_COLUMNS; i += 1)
-        {
-            for (int j = 0; j < GROUND_BELOW_ROWS; j += 1)
-            {
-                // Position in wider scrollable world
-                int x = SCROLLABLE_WIDTH - HALF_TILE_SIZE - i * TILE_SIZE;
-                int y = HALF_VISIBLE_HEIGHT + TILE_SIZE + TILE_SIZE * (j + 1);
-
-                // Create object and add it
-                GroundBelow groundBelow = new GroundBelow(x, y);
-                addObject(groundBelow, x, y);
-            }
-        }
+        addObject(theHero, initialX, 13 * TILE_SIZE);
     }
 
     /**
