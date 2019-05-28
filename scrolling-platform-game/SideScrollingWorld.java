@@ -25,7 +25,7 @@ public class SideScrollingWorld extends World
     public static final int VISIBLE_HEIGHT = 640;
 
     // Additional useful constants based on world size
-    public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH / 2;
+    public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH;
     public static final int HALF_VISIBLE_HEIGHT = VISIBLE_HEIGHT / 2;
 
     // Defining the boundaries of the scrollable world
