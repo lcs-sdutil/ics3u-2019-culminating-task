@@ -126,6 +126,147 @@ public class SideScrollingWorld extends World
         }
         
         // fith platform 
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 9 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 5 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        
+        // 6 platform
+        for (int  i = 0; i <= 3; i += 1)
+        { 
+            int x = 15 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        
+        //hard way 
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 20 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 5 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 22 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 24 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 6 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 26 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 5 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 28 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 3 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 30 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 1 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 32 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 1 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 34 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 1 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 0; i += 1)
+        { 
+            int x = 34 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 1 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        // easy way
+        for (int  i = 0; i <= 4; i += 1)
+        { 
+            int x = 12 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 3; i += 1)
+        { 
+            int x = 19 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 13 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 23 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 11 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 2; i += 1)
+        { 
+            int x = 28 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 14 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 4; i += 1)
+        { 
+            int x = 32 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 12 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
+        for (int  i = 0; i <= 14; i += 1)
+        { 
+            int x = 38 * TILE_SIZE + HALF_TILE_SIZE + i * TILE_SIZE;
+            int y = 10 * TILE_SIZE + HALF_TILE_SIZE;
+
+            Ice plate = new Ice(x, y);
+            addObject(plate, x, y);
+        }
     }
 
     /**

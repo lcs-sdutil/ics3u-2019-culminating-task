@@ -24,7 +24,7 @@ public class Hero extends Actor
     private int acceleration = 2;
 
     // Strength of a jump
-    private int jumpStrength = -25;
+    private int jumpStrength = -22;
 
     // Track current theoretical position in wider "scrollable" world
     private int currentScrollableWorldXPosition;
@@ -117,7 +117,7 @@ public class Hero extends Actor
             walkingFrames = 0;
         }
         // Jumping
-        if (Greenfoot.isKeyDown("space") && !isGameOver)
+        if (Greenfoot.isKeyDown("space") && !isGameOver && verticalDirection == JUMPING_DOWN)
         {
             // Only able to jump when on a solid object
             if (onPlatform())
@@ -131,7 +131,7 @@ public class Hero extends Actor
      */
     public void checkFall()
     {
-        if (onPlatform())
+        if (onPlatform() && verticalDirection == JUMPING_DOWN)
         {
             // Stop falling
             deltaY = 0;
@@ -153,17 +153,17 @@ public class Hero extends Actor
             Actor frontUnder = getOneObjectAtOffset(getImage().getWidth() / 3, getImage().getHeight() / 2, Platform.class);
             Actor rearUnder = getOneObjectAtOffset(0 - getImage().getWidth() / 3, getImage().getHeight() / 2, Platform.class);
             // Bump the hero back up so that they are not "submerged" in a platform object
-            if (directlyUnder != null)
+            if (directlyUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = directlyUnder.getY() - directlyUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
             }
-            if (frontUnder != null)
+            if (frontUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = frontUnder.getY() - frontUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
             }
-            if (rearUnder != null)
+            if (rearUnder != null && verticalDirection == JUMPING_DOWN)
             {
                 int correctedYPosition = rearUnder.getY() - rearUnder.getImage().getHeight() / 2 - this.getImage().getHeight() / 2;
                 setLocation(getX(), correctedYPosition);
