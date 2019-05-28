@@ -22,7 +22,7 @@ public class SideScrollingWorld extends World
     // TO STUDENTS: Modify only if you're sure
     //              Should be a resolution that's a multiple of TILE_SIZE
     private static final int VISIBLE_WIDTH = 480;
-    private static final int VISIBLE_HEIGHT = 640;
+    public static final int VISIBLE_HEIGHT = 640;
 
     // Additional useful constants based on world size
     public static final int HALF_VISIBLE_WIDTH = VISIBLE_WIDTH / 2;

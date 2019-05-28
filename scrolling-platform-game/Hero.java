@@ -37,7 +37,7 @@ public class Hero extends Actor
     private static final String JUMPING_DOWN = "down";
     private String verticalDirection;
 
-    // Constants to track horizontal direction
+    // Constants to track vertical  direction
     private static final String FACING_UP = "up";
     private static final String FACING_DOWN = "down";
     private String horizontalDirection;
@@ -124,14 +124,14 @@ public class Hero extends Actor
         }
 
         // Jumping
-        // if (Greenfoot.isKeyDown("space") && !isGameOver)
-        // {
-        // // Only able to jump when on a solid object
-        // if (onPlatform())
-        // {
-        // jump();
-        // }
-        // }
+        if (Greenfoot.isKeyDown("space") && !isGameOver)
+        {
+            //Only able to jump when on a solid object
+            if (onPlatform())
+            {
+                jump();
+            }
+        }
     }
 
     /**
@@ -369,36 +369,30 @@ public class Hero extends Actor
             List<Platform> platforms = world.getObjects(Platform.class);
 
             // Move all the platform objects to make it look like hero is moving
-            for (Platform platform : platforms)
-            {
-                // Platforms move left to make hero appear to move right
-                platform.moveUp(deltaY);
-            }
+            //for (Platform platform : platforms)
+            //{
+            //    // Platforms move left to make hero appear to move right
+            //    platform.moveUp(deltaY);
+            //}
 
             // Get a list of all decorations (objects that need to move
             // to make hero look like  they are moving)
-            List<Decoration> decorations = world.getObjects(Decoration.class);
+            //List<Decoration> decorations = world.getObjects(Decoration.class);
 
             // Move all the decoration objects to make it look like hero is moving
-            for (Decoration decoration: decorations)
-            {
-                // Platforms move left to make hero appear to move right
-                decoration.moveUp(deltaY);
-            }
+            //for (Decoration decoration: decorations)
+            //{
+            //    // Platforms move left to make hero appear to move right
+            //    decoration.moveUp(deltaY);
+            //}
 
             // Get a list of all farAwayItems (objects that need to move
             // to make hero look like they are moving)
-            List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
+            //List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
 
             // Move all the tile objects to make it look like hero is moving
-            for (FarAwayItem farAwayItem : farAwayItems)
-            {
-                // FarAwayItems move left to make hero appear to move right
-                farAwayItem.moveUp(deltaY / 4);
-            }
 
         }   
-
     }
 
     /**
@@ -441,7 +435,7 @@ public class Hero extends Actor
             if (currentScrollableWorldYPosition < world.VISIBLE_HEIGHT)
             {
                 // Move left in visible world
-                int newVisibleWorldXPosition = getY() - deltaY;
+                int newVisibleWorldYPosition = getY() - deltaY;
                 setLocation(getX(), newVisibleWorldYPosition);
 
                 // Track position in wider scrolling world
@@ -454,7 +448,7 @@ public class Hero extends Actor
             // So... actually move the actor within the visible world.
 
             // Move left in visible world
-            int newVisibleWorldXPosition = getY() - deltaY;
+            int newVisibleWorldYPosition = getY() - deltaY;
             setLocation(getX(), newVisibleWorldYPosition);
 
             // Track position in wider scrolling world
@@ -470,35 +464,35 @@ public class Hero extends Actor
 
             // Get a list of all platforms (objects that need to move
             // to make hero look like they are moving)
-            List<Platform> platforms = world.getObjects(Platform.class);
+            // List<Platform> platforms = world.getObjects(Platform.class);
 
             // Move all the platform objects at same speed as hero
-            for (Platform platform : platforms)
-            {
-                // Platforms move right to make hero appear to move left
-                platform.moveDown(deltaY);
-            }
+            // for (Platform platform : platforms)
+            // {
+            // Platforms move right to make hero appear to move left
+            // platform.moveDown(deltaY);
+            // }
 
             // Get a list of all decorations (objects that need to move
             // to make hero look like they are moving)
-            List<Decoration> decorations = world.getObjects(Decoration.class);
+            // List<Decoration> decorations = world.getObjects(Decoration.class);
 
             // Move all the decoration objects to make it look like hero is moving
-            for (Decoration decoration: decorations)
-            {
-                // Platforms move right to make hero appear to move left
-                decoration.moveDown(deltaY);
-            }
+            // for (Decoration decoration: decorations)
+            // {
+            // // Platforms move right to make hero appear to move left
+            // decoration.moveDown(deltaY);
+            // }
 
             // Get a list of all items that are in the distance (far away items)
-            List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
+            // List<FarAwayItem> farAwayItems = world.getObjects(FarAwayItem.class);
 
             // Move all the FarAwayItem objects at one quarter speed as hero to create depth illusion
-            for (FarAwayItem farAwayItem : farAwayItems)
-            {
-                // FarAwayItems move right to make hero appear to move left
-                farAwayItem.moveDown(deltaY / 4);
-            }
+            // for (FarAwayItem farAwayItem : farAwayItems)
+            // {
+            // // FarAwayItems move right to make hero appear to move left
+            // farAwayItem.moveDown(deltaY / 4);
+            // }
 
         } 
 
