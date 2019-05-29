@@ -43,7 +43,7 @@ public class SideScrollingWorld extends World
     GreenfootSound themeSong;
 
     //add timer 
-    private int timer = 20;
+    private int timer = 1200;
 
     /**
      * Constructor for objects of class SideScrollingWorld.
@@ -98,7 +98,7 @@ public class SideScrollingWorld extends World
      */
     private void timer()
     {
-        timer = timer-1;
+        timer = timer -1;
         if(timer ==0)
         {
             Greenfoot.stop();
