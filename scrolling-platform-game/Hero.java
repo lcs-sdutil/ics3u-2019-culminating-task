@@ -477,6 +477,9 @@ public class Hero extends Actor
             world.removeObject(this);
             // Tell the user game is over
             world.showText("GAME OVER", world.getWidth() / 2, world.getHeight() / 2);
+            
+            // stop world
+            Greenfoot.stop();
         }
     }
 }

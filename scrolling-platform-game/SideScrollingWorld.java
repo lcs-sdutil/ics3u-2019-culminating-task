@@ -39,6 +39,12 @@ public class SideScrollingWorld extends World
     // Track whether game is on
     private boolean isGameOver;
 
+    // Background music
+    GreenfootSound themeSong;
+
+    //add timer 
+    private int timer = 20;
+
     /**
      * Constructor for objects of class SideScrollingWorld.
      */
@@ -54,6 +60,24 @@ public class SideScrollingWorld extends World
 
         // Game on
         isGameOver = false;
+
+        // Load the sound file
+        themeSong = new GreenfootSound("iceclimbertheme.wav");
+
+    }
+
+    /**
+     * Happens when the 'Run' button is pressed.
+     */
+    public void started() 
+    {
+        // Play theme song on a loop
+        themeSong.playLoop();
+    }
+
+    public void stopped()
+    {
+        themeSong.stop();
     }
 
     /**
@@ -66,12 +90,23 @@ public class SideScrollingWorld extends World
         // add starting platform 
         addPlatforms();
 
-        
-
-        
         addHero();
     }
-    
+
+    /**
+     * add a timer to show time left for player 
+     */
+    private void timer()
+    {
+        timer = timer-1;
+        if(timer ==0)
+        {
+            Greenfoot.stop();
+            showText("GAME OVER",getWidth() / 2, getHeight() / 2);
+        }
+        showText("Time left:"+timer,100,30);
+    }
+
     /**
      * Add all the small platforms 
      */
@@ -86,7 +121,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // Add second platform  
         for (int  i = 0; i <= 2; i += 1)
         { 
@@ -96,7 +131,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // tird platform 
         for (int  i = 0; i <= 3; i += 1)
         { 
@@ -106,7 +141,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // fourth platform
         for (int  i = 0; i <= 2; i += 1)
         { 
@@ -124,7 +159,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // fith platform 
         for (int  i = 0; i <= 2; i += 1)
         { 
@@ -134,7 +169,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // 6 platform
         for (int  i = 0; i <= 3; i += 1)
         { 
@@ -144,7 +179,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         //hard way 
         for (int  i = 0; i <= 0; i += 1)
         { 
@@ -266,7 +301,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // easy way
         for (int  i = 0; i <= 4; i += 1)
         { 
@@ -332,7 +367,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
         // end platform
         for (int  i = 0; i <= 4; i += 1)
         { 
@@ -342,7 +377,7 @@ public class SideScrollingWorld extends World
             Ice plate = new Ice(x, y);
             addObject(plate, x, y);
         }
-        
+
     }
 
     /**
@@ -377,6 +412,7 @@ public class SideScrollingWorld extends World
      */
     public void act()
     {
+        timer();
     }
 
     /** 
@@ -408,6 +444,7 @@ public class SideScrollingWorld extends World
     public void setGameOver()
     {
         isGameOver = true;
+
     }
 }
 
