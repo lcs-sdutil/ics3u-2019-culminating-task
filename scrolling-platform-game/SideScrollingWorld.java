@@ -64,6 +64,8 @@ public class SideScrollingWorld extends World
         // Load the sound file
         themeSong = new GreenfootSound("iceclimbertheme.wav");
 
+        
+
     }
 
     /**
@@ -99,12 +101,12 @@ public class SideScrollingWorld extends World
     private void timer()
     {
         timer = timer -1;
-        if(timer ==0)
+        if(timer == 0 )
         {
             Greenfoot.stop();
-            showText("GAME OVER",getWidth() / 2, getHeight() / 2);
+            showText("GAME OVER", getWidth() / 2, getHeight() / 2);
         }
-        showText("Time left:"+timer,100,30);
+        showText("Time left: "+timer,100,30);
     }
 
     /**
@@ -413,6 +415,7 @@ public class SideScrollingWorld extends World
     public void act()
     {
         timer();
+
     }
 
     /** 
